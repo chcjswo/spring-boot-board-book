@@ -1,5 +1,6 @@
-package com.mocadev.springbootboard.domain;
+package com.mocadev.springbootboard.domain.posts;
 
+import com.mocadev.springbootboard.domain.posts.Posts;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

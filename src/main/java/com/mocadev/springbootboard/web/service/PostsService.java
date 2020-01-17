@@ -1,9 +1,10 @@
 package com.mocadev.springbootboard.web.service;
 
-import com.mocadev.springbootboard.domain.Posts;
-import com.mocadev.springbootboard.domain.PostsRepository;
+import com.mocadev.springbootboard.domain.posts.Posts;
+import com.mocadev.springbootboard.domain.posts.PostsRepository;
 import com.mocadev.springbootboard.web.dto.PostsResponseDto;
 import com.mocadev.springbootboard.web.dto.PostsSaveRequestDto;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,10 @@ public class PostsService {
 
     private final PostsRepository postsRepository;
 
+    public List<Posts> findAll() {
+        return postsRepository.findAll();
+    }
+
     @Transactional
     public Long save(PostsSaveRequestDto requestDto) {
         return postsRepository.save(requestDto.toEntity()).getId();
@@ -37,6 +42,7 @@ public class PostsService {
     }
 
     public PostsResponseDto findById(Long id) {
+        System.out.println("id: " + id);
         Posts entity = postsRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
 

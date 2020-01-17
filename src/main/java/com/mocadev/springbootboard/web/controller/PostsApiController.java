@@ -1,8 +1,10 @@
 package com.mocadev.springbootboard.web.controller;
 
+import com.mocadev.springbootboard.domain.posts.Posts;
 import com.mocadev.springbootboard.web.dto.PostsSaveRequestDto;
 import com.mocadev.springbootboard.web.dto.PostsResponseDto;
 import com.mocadev.springbootboard.web.service.PostsService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +27,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostsApiController {
 
     private final PostsService postsService;
+
+    @GetMapping("/posts")
+    public List<Posts> findAll() {
+        return postsService.findAll();
+    }
 
     @PostMapping("/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {

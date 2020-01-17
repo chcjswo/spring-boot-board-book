@@ -1,10 +1,9 @@
 package com.mocadev.springbootboard.web.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-import com.mocadev.springbootboard.domain.Posts;
-import com.mocadev.springbootboard.domain.PostsRepository;
+import com.mocadev.springbootboard.domain.posts.Posts;
+import com.mocadev.springbootboard.domain.posts.PostsRepository;
 import com.mocadev.springbootboard.web.dto.PostsSaveRequestDto;
 import com.mocadev.springbootboard.web.dto.PostsUpdateRequestDto;
 import java.util.List;
@@ -44,7 +43,7 @@ class PostsApiControllerTest {
 
     @AfterEach
     void tearDown() {
-        postsRepository.deleteAll();
+        //postsRepository.deleteAll();
     }
 
     @DisplayName("post를 등록한다")

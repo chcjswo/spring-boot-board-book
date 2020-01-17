@@ -1,6 +1,6 @@
 package com.mocadev.springbootboard.web.dto;
 
-import com.mocadev.springbootboard.domain.Posts;
+import com.mocadev.springbootboard.domain.posts.Posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
