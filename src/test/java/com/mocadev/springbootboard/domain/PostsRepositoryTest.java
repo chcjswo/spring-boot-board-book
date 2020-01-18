@@ -30,7 +30,7 @@ class PostsRepositoryTest {
 
 	@AfterEach
 	void cleanup() {
-		//postsRepository.deleteAll();
+		postsRepository.deleteAll();
 	}
 
 	@Test
