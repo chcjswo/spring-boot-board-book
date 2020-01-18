@@ -13,6 +13,6 @@ cache:
     directories:
         - '$HOME/.m2/repository'
         - '$HOME/.gradle'
-script: "./mvn clean build"
+script: "mvn clean compile"
 notifications:
     slack: mocadevs:0GFPHOOopFep911ZGvAq2eyV
