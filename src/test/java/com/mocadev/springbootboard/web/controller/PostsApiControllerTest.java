@@ -43,7 +43,7 @@ class PostsApiControllerTest {
 
     @AfterEach
     void tearDown() {
-        //postsRepository.deleteAll();
+        postsRepository.deleteAll();
     }
 
     @DisplayName("post를 등록한다")
