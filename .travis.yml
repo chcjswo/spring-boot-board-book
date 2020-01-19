@@ -37,7 +37,7 @@ deploy:
       bucket: spring-boot-board # S3 버킷
       key: spring-boot-board-book-webservice.zip # 빌드 파일을 압축해서 전달
       bundle_type: zip
-      application: spring-boot-board # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+      application: spring-boot-board-webservice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
       deployment_group: spring-boot-board-webservice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
       region: ap-northeast-2
       wait-until-deployed: true
