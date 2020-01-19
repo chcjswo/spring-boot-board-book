@@ -15,4 +15,4 @@ cache:
         - '$HOME/.m2/repository'
 #script: "mvn clean package"
 notifications:
-    slack: mocadevs:0GFPHOOopFep911ZGvAq2eyV
+    slack: $SLACK_NOTIFY
