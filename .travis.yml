@@ -15,4 +15,5 @@ cache:
         - '$HOME/.m2/repository'
 #script: "mvn clean package"
 notifications:
-    slack: mocadevs:0GFPHOOopFep911ZGvAq2eyV
+    slack:
+        secure: "J3tR1kw6qpKMZE4j5qRR21Bgw9SvIMlZcEkfcqFm6iYDzS65Wa5jVMdWbLAH2T0e0Zyma+UnYR4BHPBBgf4YaYsqjuZ97FdRiJT4ay1nh7rEWObK/MNcVqB4zS305IiQ/wuEpfwZ2BF6ZOr3APRGewLyboNf9OM8NYJt7zgMfmbuU1DljGFG+QpojHEYRMd2U1YFRhxv+hu2dKZAbWe04mkzxgS4JiqwzwsK9xoSvWENp41jtHDJuih31Ub4cKnn7hGjBpigQqcJnbTnrFU5pC8/nKhWpr3gJJ1PdbYR3Gzs18dcnLQerAZRpleh+xqzMb4b/FPnAu3W5jQyAeHzQxIplUrJPH8hAJD0hzMqvGwdY9YApKW1bH5D8cINBxbxoHcZK6PWn2TrQmewnei44JODxxmq81nLd8X5nNiwLpo8lG54jplxfCLv323f7rrqzv2Ai4Ep/klZvTsmcighUzA41c0zR/xCntLeJEqdbSbphSKYvhMoS4U39OohGR6fMburOVBV4K4j2kJR/puA3cpXZ4cOD1U6iVyDxB4YXTkX1GSFyyNnwgvDH/JDxVLjn2JsL4KDua5TiuUKJVPoK7wl6VDpZU0ueeAYC/72aq+N+O8mFjJ5luZ5ULaFnBC12bzYRKXoJ6LbN6jMpX493iauvnY2ocN/DufaofWZ76k="
