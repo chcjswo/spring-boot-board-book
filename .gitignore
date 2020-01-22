@@ -31,4 +31,3 @@ build/
 .vscode/
 
 application-oauth.yml
-!/src/main/resources/application-oauth.yml
