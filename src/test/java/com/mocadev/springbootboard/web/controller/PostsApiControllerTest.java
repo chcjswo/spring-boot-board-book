@@ -1,6 +1,7 @@
 package com.mocadev.springbootboard.web.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 
 import com.mocadev.springbootboard.domain.posts.Posts;
 import com.mocadev.springbootboard.domain.posts.PostsRepository;
@@ -8,6 +9,7 @@ import com.mocadev.springbootboard.web.dto.PostsSaveRequestDto;
 import com.mocadev.springbootboard.web.dto.PostsUpdateRequestDto;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +22,12 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 /**
  * https://github.com/chcjswo https://mocadev.tistory.com
@@ -41,6 +48,19 @@ class PostsApiControllerTest {
     @Autowired
     private PostsRepository postsRepository;
 
+    @Autowired
+    private WebApplicationContext context;
+
+    private MockMvc mvc;
+
+    @BeforeEach
+    public void setUp() {
+        mvc = MockMvcBuilders
+            .webAppContextSetup(context)
+            .apply(springSecurity())
+            .build();
+    }
+
     @AfterEach
     void tearDown() {
         postsRepository.deleteAll();
@@ -48,6 +68,7 @@ class PostsApiControllerTest {
 
     @DisplayName("post를 등록한다")
     @Test
+    @WithMockUser(roles = "USER")
     void postsSave() {
         // given
         String title = "title";
@@ -75,6 +96,7 @@ class PostsApiControllerTest {
 
     @DisplayName("post를 수정한다")
     @Test
+    @WithMockUser(roles = "USER")
     void update() {
         // given
         Posts savedPosts = postsRepository.save(Posts.builder()

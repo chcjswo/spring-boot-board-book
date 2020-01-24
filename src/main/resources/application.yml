@@ -8,15 +8,15 @@ spring:
     h2:
         console:
             enabled: true
-
     devtools:
         livereload:
             enabled: true
     freemarker:
         cache: false
-
     profiles:
         include: oauth
+    session:
+        store-type: jdbc
 
 logging:
     level:
