@@ -1,7 +1,9 @@
 package com.mocadev.springbootboard.web.controller;
 
-import com.mocadev.springbootboard.web.dto.PostsResponseDto;
+import com.mocadev.springbootboard.config.auth.dto.SessionUser;
+import com.mocadev.springbootboard.domain.user.User;
 import com.mocadev.springbootboard.web.service.PostsService;
+import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -34,8 +37,11 @@ public class IndexController {
 
     @GetMapping("/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model) {
-        PostsResponseDto dto = postsService.findById(id);
-        model.addAttribute("post", dto);
+        model.addAttribute("post", postsService.findById(id));
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
 
         return "posts-update";
     }
